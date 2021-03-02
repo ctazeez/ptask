@@ -2,19 +2,19 @@ version: "3"
 services:
   db:
     image: "postgres:9.6.5"
+    command: bash -c "apt-get install wget -y && cd /opt/mytask/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
     volumes:
-      - "dbdata:/var/lib/myData"
+      - "dbdata:/var/lib/postgresql/data"
       - ./thebash.sh:/docker-entrypoint-initdb.d/thebash.sh
-      - ./thezip.csv:/var/lib/myData/thezip.csv
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
 
-  nginx:
-    image: nginx
-    command: bash -c "apt-get install wget -y && cd /var/lib/myData && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
-    volumes:
-      - "dbdata:/var/lib/myData"
+  #nginx:
+   # image: nginx
+    #command: bash -c "apt-get install wget -y && cd /opt/mytask/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
+    #volumes:
+     # - "dbdata:/var/lib/myData"
 
 volumes:
   dbdata:
