@@ -2,7 +2,7 @@ version: "3"
 services:
   db:
     image: "postgres:9.6.5"
-    command: bash -c "apt-get install wget -y && cd /opt/mytask/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
+    command: bash -c "apt-get install wget -y && cd /tmp/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
     volumes:
       - "dbdata:/var/lib/postgresql/data"
       - ./thebash.sh:/docker-entrypoint-initdb.d/thebash.sh
