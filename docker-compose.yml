@@ -8,6 +8,7 @@ services:
       - .:/docker-entrypoint-initdb.d/
     environment:
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
 
   #nginx:
