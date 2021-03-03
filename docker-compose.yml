@@ -1,22 +1,32 @@
-version: "3"
+version: "3.9"
 services:
+  util:
+    image: ubuntu
+    command: /bin/bash -c "apt-get update -y &&  apt-get install -y wget && cd /opt/filedata && rm -rf * && /bin/wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
+    volumes:
+      - filedata:/opt/filedata
   db:
     image: "postgres:latest"
-    command: bash -c "apt-get update -y && apt-get install wget -y"
     restart: always
+    depends_on:
+      - util
     volumes:
-      #- "dbdata:/var/lib/postgresql/data"
-      - .:/docker-entrypoint-initdb.d/
+      - ./db_setup:/docker-entrypoint-initdb.d
+      - filedata:/opt/filedata
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
-
+  app:
+    build: ./app
+    volumes:
+      - ./app/main.py:/app/main.py
+    ports:
+      - 10020:80
   #nginx:
    # image: nginx
     #command: bash -c "apt-get install wget -y && cd /opt/mytask/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
     #volumes:
      # - "dbdata:/var/lib/myData"
-
-#volumes:
-  #dbdata:
+volumes:
+  filedata:
