@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash/su
+
 set -e
 
 apt-get update -y 
