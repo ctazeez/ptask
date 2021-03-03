@@ -1,7 +1,7 @@
 
-CREATE USER myuser;
+CREATE USER ptask_user;
 CREATE DATABASE mydb;
-GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+GRANT ALL PRIVILEGES ON DATABASE mydb TO ptask_user;
 
 CREATE TABLE google_activity_by_lb (
 date DATE,
