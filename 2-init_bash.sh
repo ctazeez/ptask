@@ -1,11 +1,10 @@
 #!/bin/bash
-#!/bin/bash/su
 
-set -e
+#set -e
 
-apt-get update -y 
+#apt-get update -y 
 
-apt-get install wget -y
+#apt-get install wget -y
 
 cd /tmp/ 
 
