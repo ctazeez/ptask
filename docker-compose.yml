@@ -1,12 +1,18 @@
 version: "3"
 services:
+  util:
+    image: ubuntu
+    command: /bin/bash -c "apt-get update -y &&  apt-get install -y wget && cd /opt/filedata && /bin/wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
+    volumes:
+      - filedata:/opt/filedata
   db:
     image: "postgres:latest"
-    command: bash -c "apt-get update -y && apt-get install wget -y"
     restart: always
+    depends_on:
+      - util
     volumes:
-      #- "dbdata:/var/lib/postgresql/data"
-      - .:/docker-entrypoint-initdb.d/
+      - ./:/docker-entrypoint-initdb.d
+      - filedata:/opt/filedata
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
@@ -18,5 +24,5 @@ services:
     #volumes:
      # - "dbdata:/var/lib/myData"
 
-#volumes:
-  #dbdata:
+volumes:
+  filedata:
