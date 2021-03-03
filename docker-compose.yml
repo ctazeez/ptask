@@ -2,7 +2,7 @@ version: "3"
 services:
   db:
     image: "postgres:latest"
-    command: bash -c /init/2-init_bash.sh
+    command: bash -c \init\2-init_bash.sh
     restart: always
     volumes:
       - "dbdata:/var/lib/postgresql/data"
