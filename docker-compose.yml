@@ -2,7 +2,7 @@ version: "3"
 services:
   util:
     image: ubuntu
-    command: /bin/bash -c "apt-get update -y &&  apt-get install -y wget && cd /opt/filedata && /bin/wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
+    command: /bin/bash -c "apt-get update -y &&  apt-get install -y wget && cd /opt/filedata && /bin/wget -q https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
     volumes:
       - filedata:/opt/filedata
   db:
@@ -11,7 +11,7 @@ services:
     depends_on:
       - util
     volumes:
-      - ./:/docker-entrypoint-initdb.d
+      - ./db_init/:/docker-entrypoint-initdb.d
       - filedata:/opt/filedata
     environment:
       POSTGRES_USER: postgres

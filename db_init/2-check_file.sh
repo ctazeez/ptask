@@ -11,4 +11,4 @@ do
 done
  
 >&2 echo "File downloaded!"
-exec $cmd
+#exec $cmd
