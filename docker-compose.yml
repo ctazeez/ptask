@@ -13,6 +13,7 @@ services:
     volumes:
       - ./db_init/:/docker-entrypoint-initdb.d
       - filedata:/opt/filedata
+      - dbdata:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
@@ -26,3 +27,4 @@ services:
 
 volumes:
   filedata:
+  dbdata:
