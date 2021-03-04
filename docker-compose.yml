@@ -20,13 +20,22 @@ services:
       POSTGRES_DB: postgres
   
   app:
-    build: ./app
+    build: ./flask-api
     volumes:
-      - ./app/main.py:/app/main.py
+      - ./flask-api/api.py:/usr/src/app/api.py
     ports:
       - 10020:80
     depends_on:
       - db
+
+  #app:
+   # build: ./app
+    #volumes:
+     # - ./app/main.py:/app/main.py
+   # ports:
+    #  - 10020:80
+   # depends_on:
+   #   - db
 
   #nginx:
    # image: nginx
