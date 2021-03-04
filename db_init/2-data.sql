@@ -1,10 +1,4 @@
 
-CREATE USER myuser;
-CREATE DATABASE mydb;
-GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
-
-CONNECT mydb;
-
 CREATE TABLE google_activity_by_lb (
 date DATE,
 area_name VARCHAR ( 50 ) ,
