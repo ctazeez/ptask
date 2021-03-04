@@ -25,6 +25,8 @@ services:
       - ./app/main.py:/app/main.py
     ports:
       - 10020:80
+    depends_on:
+      - db
 
   #nginx:
    # image: nginx
