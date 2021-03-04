@@ -1,9 +1,9 @@
 
-CREATE USER ptask_user;
-CREATE DATABASE mydb;
+CREATE USER  IF NOT EXISTS ptask_user;
+CREATE DATABASE  IF NOT EXISTS mydb;
 GRANT ALL PRIVILEGES ON DATABASE mydb TO ptask_user;
 
-CREATE TABLE google_activity_by_lb (
+CREATE TABLE IF NOT EXISTS google_activity_by_lb (
 date DATE,
 area_name VARCHAR ( 50 ) ,
 area_code VARCHAR ( 50 ) ,
