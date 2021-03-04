@@ -15,9 +15,9 @@ services:
       - filedata:/opt/filedata
       - dbdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: myuser
       POSTGRES_PASSWORD: test12345
-      POSTGRES_DB: postgres
+      POSTGRES_DB: mydb
 
   #nginx:
    # image: nginx
