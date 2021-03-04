@@ -18,6 +18,13 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
+  
+  app:
+    build: ./app
+    volumes:
+      - ./app/main.py:/app/main.py
+    ports:
+      - 10020:80
 
   #nginx:
    # image: nginx
