@@ -11,7 +11,7 @@ services:
     depends_on:
       - util
     volumes:
-      - ./db_init/:/docker-entrypoint-initdb.d
+      - ./db_init/:/docker-entrypoint-initdb.d/
       - filedata:/opt/filedata
       - dbdata:/var/lib/postgresql/data
     environment:
@@ -40,10 +40,10 @@ services:
     container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/nginx.cert:/etc/nginx/nginx.cert
-      - ./nginx/nginx.key:/etc/nginx/nginx.key
+      - ./nginx/keys/:/etc/nginx/
     ports:
-        - 80:443
+        - 80:80
+        - 443:443
     depends_on:
       - api
     networks:
