@@ -22,7 +22,7 @@ services:
   app:
     build: ./flask-api
     volumes:
-      - ./flask-api/main.py:app/main.py
+      - ./flask-api/main.py:/app/main.py
     ports:
       - 10020:80
     depends_on:
