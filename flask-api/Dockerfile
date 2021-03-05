@@ -1,10 +1,9 @@
-FROM python:3
+FROM python:3.4-alpine
 
-WORKDIR /usr/src/app
+ADD . /Code
 
-COPY requirements.txt ./
+WORKDIR /code
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-#COPY api.py ./
-
-#CMD [ "python", "./api.py" ]
+CMD [ "python", "app.py" ]
