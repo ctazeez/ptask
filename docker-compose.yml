@@ -18,6 +18,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
+    networks:
+      db_nw:
   
   api:
     build: ./flask-api
@@ -26,7 +28,8 @@ services:
     #ports:
      # - 5000:5000
     networks:
-      my-network:
+      db_nw:
+      web_nw:
         aliases:
           - flask-app
     depends_on:
@@ -42,12 +45,12 @@ services:
     depends_on:
       - api
     networks:
-      my-network:
-
-
+      web_nw:
+    
 
 networks:
-  my-network:
+  web_nw:
+  db_nw:
 
 volumes:
   filedata:
