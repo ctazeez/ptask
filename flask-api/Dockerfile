@@ -1,6 +1,6 @@
 FROM python:3.4-alpine
 
-ADD . /Code
+ADD .flask-api /Code
 
 WORKDIR /code
 
