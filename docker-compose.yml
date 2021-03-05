@@ -19,7 +19,7 @@ services:
       POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
   
-  web:
+  api:
     build: ./flask-api
     #volumes:
      # - ./flask-api/main.py:/app/main.py

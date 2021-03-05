@@ -1,9 +1,10 @@
-FROM python:3.4-alpine
+FROM python:3
 
-ADD flask-api /Code
+WORKDIR /usr/src/app
 
-WORKDIR /code
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+COPY main.py .
 
-CMD [ "python", "app.py" ]
+CMD [ "python", "main.py" ]
