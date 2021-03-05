@@ -9,4 +9,4 @@ docker volume rm  ptask_filedata
 
 chmod -R +x db_init/
 
-docker-compose up
+docker-compose up --no-cache
