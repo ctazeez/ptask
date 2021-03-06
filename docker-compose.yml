@@ -18,6 +18,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
       POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
     networks:
       db_nw:
   
