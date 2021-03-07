@@ -11,10 +11,10 @@ db=SQLAlchemy(app)
 class google_activity(db.Model):
 
     __tablename__ = 'google_activity_by_lb'
-
+    id = db.Coloumn(db.Integer, primary_key=True)
     date = db.Column(db.Date())
     area_name = db.Column(db.String(), nullable=True)
-    area_code = db.Column(db.String(), nullable=True,primary_key=True)
+    area_code = db.Column(db.String(), nullable=True)
     retail_and_recreation_percent_change_from_baseline = db.Column(db.String(), nullable=True)
     grocery_and_pharmacy_percent_change_from_baseline = db.Column(db.String(), nullable=True)
     parks_percent_change_from_baseline = db.Column(db.String(), nullable=True)

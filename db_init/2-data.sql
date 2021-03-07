@@ -1,5 +1,6 @@
 
 CREATE TABLE google_activity_by_lb (
+id serial PRIMARY KEY,
 date DATE,
 area_name VARCHAR ( 50 ) ,
 area_code VARCHAR ( 50 ) ,
