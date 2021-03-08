@@ -23,7 +23,8 @@ class google_activity(db.Model):
     residential_percent_change_from_baseline = db.Column(db.String(), nullable=True)
 
 
-    def __init__(self,date,area_name,area_code,retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline):
+    def __init__(self,id,date,area_name,area_code,retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline):
+        self.id = id
         self.date = date
         self.area_name = area_name
         self.area_code = area_code
