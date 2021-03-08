@@ -12,4 +12,5 @@ workplaces_percent_change_from_baseline VARCHAR ( 255 ) ,
 residential_percent_change_from_baseline VARCHAR ( 255 )
 );
 
-COPY google_activity_by_lb FROM '/opt/filedata/google_activity_by_London_Borough.csv' delimiter ',' csv header;
+COPY google_activity_by_lb (date,area_name,area_code,retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline) 
+FROM '/opt/filedata/google_activity_by_London_Borough.csv' delimiter ',' csv header;
