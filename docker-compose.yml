@@ -7,6 +7,7 @@ services:
       - filedata:/opt/filedata
   db:
     image: "postgres:latest"
+    container_name:psdb
     restart: always
     depends_on:
       - util
@@ -23,6 +24,7 @@ services:
   
   api:
     build: ./flask-api
+    container_name:api
     #volumes:
      # - ./flask-api/main.py:/app/main.py
     #ports:
