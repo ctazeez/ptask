@@ -40,8 +40,8 @@ services:
     container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/my-site.com.crt:/etc/nginx/my-site.com.crt
-      - ./nginx/my-site.com.key:/etc/nginx/my-site.com.key
+      - ./nginx/my-site.com.crt:/etc/nginx/ptask.crt
+      - ./nginx/my-site.com.key:/etc/nginx/ptask.key
 
     ports:
         - 80:80
