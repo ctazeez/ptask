@@ -1,4 +1,4 @@
-from flask import Flask,jsonify
+from flask import Flask,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -40,6 +40,22 @@ def healthCheck():
     return {
         'Status':'Healthy'
     }
+
+@app.route('/api/area', methods=['GET'])
+def getArea():
+    name = request.args.get('name')
+    # allarea = area.query.all()
+    #getarea = google_activity()
+    result=[]
+    allarea = google_activity.query.all()
+    #filtered = [a for a in allarea if a['area_name']==name]
+    for area in allarea:
+        curActivity ={}
+        curActivity['area_name'] = area.area_name
+        curActivity['area_code'] = area.area_code
+        
+        result.append(curActivity)
+    return jsonify(result), 200
     
 @app.route('/google_activity', methods=['GET'])
 def getGoogleActivity():
