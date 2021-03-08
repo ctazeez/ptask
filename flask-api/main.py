@@ -11,7 +11,7 @@ db=SQLAlchemy(app)
 class google_activity(db.Model):
 
     __tablename__ = 'google_activity_by_lb'
-    id = db.Coloumn(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date())
     area_name = db.Column(db.String(), nullable=True)
     area_code = db.Column(db.String(), nullable=True)
