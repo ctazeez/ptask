@@ -1,12 +1,22 @@
 
 #!/bin/bash
 
-docker-compose down
+action=$1
 
-docker volume rm  ptask_dbdata
+if [ "$action" == "up" ]
+then
+    chmod -R +x db_init/
+    docker-compose up
 
-docker volume rm  ptask_filedata
+elif [ "$action" == "down" ]
 
-chmod -R +x db_init/
+    docker-compose down
+    docker volume rm  ptask_dbdata
+    docker volume rm  ptask_filedata
 
-docker-compose up
+else
+then    
+    echo "Please enter argument as up or down"
+    echo "up - To create the application."
+    echo "down - To destroy the containers and application."
+fi
