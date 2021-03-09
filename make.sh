@@ -9,7 +9,7 @@ then
     #docker-compose up
 
 elif [ "$action" == "down" ]
-
+then
     #docker-compose down
     docker volume rm  ptask_dbdata
     docker volume rm  ptask_filedata
