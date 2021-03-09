@@ -14,8 +14,7 @@ then
     docker volume rm  ptask_dbdata
     docker volume rm  ptask_filedata
 
-else
-then    
+else    
     echo "Please enter argument as up or down"
     echo "up - To create the application.
           down - To destroy the containers and application."
