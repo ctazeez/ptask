@@ -16,6 +16,7 @@ then
 
 else    
     echo "Please enter argument as up or down"
-    echo "up - To create the application.
-    down - To destroy the containers and application."
+    echo "
+        up - To create the application.
+        down - To destroy the containers and application."
 fi
