@@ -72,7 +72,10 @@ def activities():
 
             output.append(curActivity)
     except exceptions.SQLAlchemyError:
-        print("Error while fetching data from PostgreSQL", error)
+        print("Error while fetching data from PostgreSQL")
+        return{
+            'message':'Error while fetching data from PostgreSQL'
+        }, 404
 
     return jsonify(output), 200
 
