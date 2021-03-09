@@ -6,8 +6,8 @@ services:
     volumes:
       - filedata:/opt/filedata
   db:
-    image: "postgres:latest"
-    container_name:psdb
+    image: postgres:13.2
+    container_name: psdb
     restart: always
     depends_on:
       - util
@@ -15,6 +15,11 @@ services:
       - ./db_init/:/docker-entrypoint-initdb.d/
       - filedata:/opt/filedata
       - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: test12345
@@ -24,7 +29,7 @@ services:
   
   api:
     build: ./flask-api
-    container_name:api
+    container_name: api
     #volumes:
      # - ./flask-api/main.py:/app/main.py
     #ports:
