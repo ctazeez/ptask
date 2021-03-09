@@ -8,7 +8,7 @@ app.debug=True
 
 db=SQLAlchemy(app)
 
-class google_activity(db.Model):
+class Activity(db.Model):
 
     __tablename__ = 'google_activity_by_lb'
     id = db.Column(db.Integer, primary_key=True)
