@@ -7,7 +7,7 @@ services:
       - filedata:/opt/filedata
   db:
     image: postgres:13.2
-    #container_name: psdb
+    container_name: psdb
     restart: always
     depends_on:
       - util
@@ -29,11 +29,7 @@ services:
   
   api:
     build: ./flask-api
-    #container_name: api
-    #volumes:
-     # - ./flask-api/main.py:/app/main.py
-    #ports:
-     # - 5000:5000
+    container_name: api
     networks:
       db_nw:
       web_nw:
@@ -44,7 +40,6 @@ services:
   
   nginx:
     image: nginx:1.13.7
-    #container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/ptask.com.crt:/etc/nginx/ptask.com.crt
