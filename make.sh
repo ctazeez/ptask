@@ -6,7 +6,7 @@ action=$1
 if [ "$action" == "up" ]
 then
     chmod -R +x db_init/
-    docker-compose up
+    docker-compose up -d
 elif [ "$action" == "down" ]
 then
     docker-compose down
