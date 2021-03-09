@@ -5,6 +5,7 @@ services:
     command: /bin/bash -c "apt-get update -y &&  apt-get install -y wget && cd /opt/filedata && rm -rf * && /bin/wget -q https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
     volumes:
       - filedata:/opt/filedata
+      
   db:
     image: postgres:13.2
     container_name: psdb
