@@ -84,7 +84,7 @@ def get_area_by_code(code):
 
     try:
         output = []
-        allactivity = Activity.query.filte_by(area_code=code)
+        allactivity = Activity.query.filter_by(area_code=code)
 
         for acitivity in allactivity:
             curActivity ={}
@@ -93,14 +93,12 @@ def get_area_by_code(code):
 
             output.append(curActivity)
         
-    except exceptions.SQLAlchemyError:
+    except Exception:
         print("Error while fetching data from PostgreSQL")
         return{
             'message':'Error while fetching data from PostgreSQL'
         }, 404
-
-    return jsonify(output), 200
-
+        return jsonify(output), 200
 
 @app.route('/api/v1/activities/pointers',methods=['GET'])
 def getSearchData(): 
