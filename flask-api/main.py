@@ -120,21 +120,21 @@ def get_data_by_area_code_and_coloumn(areacode: str, coloumn: str, pvalue: str):
     if len(all_data) <=0:
         return{
             "Message":"No result.. check the data passed."
-        }
+        }, 400
 
     for data in all_data:
-        curActivity ={}
-        curActivity['area_name'] = data.area_name
-        curActivity['area_code'] = data.area_code
-        curActivity['date'] = data.date
-        curActivity['retail_and_recreation_percent_change_from_baseline'] = data.retail_and_recreation_percent_change_from_baseline
-        curActivity['grocery_and_pharmacy_percent_change_from_baseline'] = data.grocery_and_pharmacy_percent_change_from_baseline
-        curActivity['parks_percent_change_from_baseline'] = data.parks_percent_change_from_baseline
-        curActivity['transit_stations_percent_change_from_baseline'] = data.transit_stations_percent_change_from_baseline
-        curActivity['workplaces_percent_change_from_baseline'] = data.workplaces_percent_change_from_baseline
-        curActivity['residential_percent_change_from_baseline'] = data.residential_percent_change_from_baseline
+        curData ={}
+        curData['area_name'] = data.area_name
+        curData['area_code'] = data.area_code
+        curData['date'] = data.date
+        curData['retail_and_recreation_percent_change_from_baseline'] = data.retail_and_recreation_percent_change_from_baseline
+        curData['grocery_and_pharmacy_percent_change_from_baseline'] = data.grocery_and_pharmacy_percent_change_from_baseline
+        curData['parks_percent_change_from_baseline'] = data.parks_percent_change_from_baseline
+        curData['transit_stations_percent_change_from_baseline'] = data.transit_stations_percent_change_from_baseline
+        curData['workplaces_percent_change_from_baseline'] = data.workplaces_percent_change_from_baseline
+        curData['residential_percent_change_from_baseline'] = data.residential_percent_change_from_baseline
         
-        result.append(curActivity)
+        result.append(curData)
     return jsonify(result), 200
 
 
