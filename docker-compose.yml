@@ -49,10 +49,9 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/ptask.com.crt:/etc/nginx/ptask.com.crt
       - ./nginx/ptask.com.key:/etc/nginx/ptask.com.key
-
     ports:
-        - 80:80
-        - 443:443
+      - 80:80
+      - 443:443
     depends_on:
       - api
     networks:
@@ -67,19 +66,5 @@ volumes:
   filedata:
   dbdata:
 
-  #app:
-   # build: ./app
-    #volumes:
-     # - ./app/main.py:/app/main.py
-   # ports:
-    #  - 10020:80
-   # depends_on:
-   #   - db
-
-  #nginx:
-   # image: nginx
-    #command: bash -c "apt-get install wget -y && cd /opt/mytask/ && wget https://data.london.gov.uk/download/google-mobility-by-borough/26d5821b-fcb6-4aae-af73-ee0596942d16/google_activity_by_London_Borough.csv"
-    #volumes:
-     # - "dbdata:/var/lib/myData"
 
 
