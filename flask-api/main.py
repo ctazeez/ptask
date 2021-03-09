@@ -90,7 +90,7 @@ def get_area_by_code(code):
 
             output.append(curActivity)
         
-    except exceptions.SQLAlchemyError::
+    except exceptions.SQLAlchemyError:
         print("Error while fetching data from PostgreSQL")
         return{
             'message':'Error while fetching data from PostgreSQL'
