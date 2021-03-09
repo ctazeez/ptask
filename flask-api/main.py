@@ -84,10 +84,9 @@ def get_area_by_code(code):
 
     try:
         output = []
-        allactivity = Activity.query.filter_by(area_code=code)
-        filtered = [act for act in allactivity if act.area_code == code]
+        allactivity = Activity.query.filter_by(area_code=code).one()
 
-        for acitivity in filtered:
+        for acitivity in allactivity:
             curActivity ={}
             curActivity['area_name'] = acitivity.area_name
             curActivity['area_code'] = acitivity.area_code
