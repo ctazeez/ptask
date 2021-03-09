@@ -90,8 +90,11 @@ def get_area_by_code(code):
 
             output.append(curActivity)
         
-    except (Exception, psycopg2.Error) as error:
-        print("Error while fetching data from PostgreSQL", error)
+    except exceptions.SQLAlchemyError::
+        print("Error while fetching data from PostgreSQL")
+        return{
+            'message':'Error while fetching data from PostgreSQL'
+        }, 404
 
     return jsonify(output), 200
 
