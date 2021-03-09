@@ -92,13 +92,14 @@ def get_area_by_code(code):
             curActivity['area_code'] = acitivity.area_code
 
             output.append(curActivity)
+        return jsonify(output), 200
         
     except Exception:
         print("Error while fetching data from PostgreSQL")
         return{
             'message':'Error while fetching data from PostgreSQL'
         }, 404
-        return jsonify(output), 200
+        
 
 @app.route('/api/v1/activities/pointers',methods=['GET'])
 def getSearchData(): 
